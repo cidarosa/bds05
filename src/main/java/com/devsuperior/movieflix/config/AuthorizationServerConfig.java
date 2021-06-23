@@ -58,11 +58,8 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 	@Override
 	public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
 		clients.inMemory()
-				// .withClient("dscatalog")
 				.withClient(clientId)
-				// .secret(passwordEncoder.encode("dscatalog123"))
 				.secret(passwordEncoder.encode(clientSecret)).scopes("read", "write").authorizedGrantTypes("password")
-				// .accessTokenValiditySeconds(86400);
 				.accessTokenValiditySeconds(jwtDuration);
 	}
 
