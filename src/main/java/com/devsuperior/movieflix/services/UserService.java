@@ -35,6 +35,13 @@ public class UserService implements UserDetailsService {
 		User entity = obj.orElseThrow(() -> new ResourceNotFoundException("Entity not found"));
 		return new UserDTO(entity);
 	}
+	
+	public UserDTO getProfile() {
+		User user = authService.authenticated(); //pegar quem está logado
+		//user = repository.findByEmail(user.getEmail());
+		
+		return new UserDTO(user);
+	}
 
 	// implementando o método da UserDetailsService
 	@Override

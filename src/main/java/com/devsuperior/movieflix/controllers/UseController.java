@@ -23,5 +23,12 @@ public class UseController {
 		UserDTO dto = service.findById(id);
 		return ResponseEntity.ok().body(dto);
 	}
+	
+	@GetMapping(value = "/profile")
+	public ResponseEntity<UserDTO> getProfile(){
+		UserDTO dto = service.getProfile();
+		return ResponseEntity.ok().body(dto);
+		
+	}
 
 }
